@@ -20,7 +20,7 @@ public class RequestLocation extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		
-		Context context = getApplicationContext();
+		Context context = this.cordova.getActivity().getApplicationContext();
 		
 		try {
 		    if (ACTION_CHECK_LOCATION_ENABLED.equals(action)) { 
