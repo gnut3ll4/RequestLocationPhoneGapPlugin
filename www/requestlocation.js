@@ -1,4 +1,4 @@
-    var RequestLocationLoader = function (require) {
+    var RequestLocationLoader = function (require, exports, module) {
 
         var exec = require("cordova/exec");
 
@@ -19,7 +19,7 @@
 
     }
 
-    RequestLocationLoader(require);
+    RequestLocationLoader(require, exports, module);
 
     cordova.define("cordova/plugin/RequestLocation", RequestLocationLoader);
 
