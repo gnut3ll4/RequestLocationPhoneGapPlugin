@@ -8,6 +8,7 @@ import org.json.JSONException;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.Context;
 import android.location.LocationManager;
 
 public class RequestLocation extends CordovaPlugin {
@@ -23,17 +24,17 @@ public class RequestLocation extends CordovaPlugin {
 		    if (ACTION_CHECK_LOCATION_ENABLED.equals(action)) { 
 		    	
 		    	
-		    	LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		    	
+		 
+		    } else if( ACTION_ENABLE_LOCATION.equals(action)) {
+		    	
+		    	LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER )) {
 		            Intent calIntent = new Intent( Settings.ACTION_LOCATION_SOURCE_SETTINGS );
 		            this.cordova.getActivity().startActivity(calIntent);
 					callbackContext.success();
 					return true;
 		        }
-		 
-		    } else if( ACTION_ENABLE_LOCATION.equals(action)) {
-		    	
-		    	
 		    }
 		    
 		    callbackContext.error("Invalid action");
