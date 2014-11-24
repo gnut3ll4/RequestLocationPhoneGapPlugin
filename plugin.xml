@@ -20,6 +20,10 @@
                 <param name="android-package" value="com.gnut3ll4.requestlocation.RequestLocation"/>
             </feature>
         </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+		</config-file>
 
         <source-file src="src/android/RequestLocation.java" target-dir="src/com/gnut3ll4/requestlocation" />
     </platform>
