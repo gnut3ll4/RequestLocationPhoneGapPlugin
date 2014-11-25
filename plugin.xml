@@ -10,7 +10,7 @@
 
 
     <js-module src="www/requestlocation.js" name="RequestLocation">
-        <clobbers target="window.requestlocation" />
+        <clobbers target="requestlocation" />
     </js-module>
 
     <!-- android -->

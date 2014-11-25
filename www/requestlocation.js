@@ -1,27 +1,21 @@
-    var RequestLocationLoader = function (require, exports, module) {
 
-        var exec = require("cordova/exec");
 
-        function RequestLocation() {};
+var exec = require("cordova/exec");
 
-        RequestLocation.prototype.enableLocation = function (successCallback, errorCallback) {
-            exec(
-            successCallback, // success callback function
-            errorCallback, // error callback function
-            'RequestLocation', // mapped to our native Java class called "RequestLocation"
-            'enableLocation' // with this action name
-			);
-        };
+function RequestLocation() {};
 
-       
-        var requestLocation = new RequestLocation();
-        module.exports = requestLocation;
+RequestLocation.prototype.enableLocation = function (successCallback, errorCallback) {
+    exec(
+    successCallback, // success callback function
+    errorCallback, // error callback function
+    'RequestLocation', // mapped to our native Java class called "RequestLocation"
+    'enableLocation', // with this action name
+    []
+    );
+};
 
-    }
 
-    RequestLocationLoader(require, exports, module);
-
-    cordova.define("cordova/plugin/RequestLocation", RequestLocationLoader);
+module.exports = new RequestLocation();
 
 
 
