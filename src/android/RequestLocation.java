@@ -25,10 +25,12 @@ public class RequestLocation extends CordovaPlugin {
 		try {
 		    if (ACTION_CHECK_LOCATION_ENABLED.equals(action)) { 
 		    	
-		    	 if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER )) {
-		    		 callbackContext.success(1); 
+		    	 if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER )) {
+		    		 callbackContext.success(1);
+		    		 return true;
 		    	 } else {
 		    		 callbackContext.success(0);
+		    		 return true;
 		    	 }
 		 
 		    } else if( ACTION_ENABLE_LOCATION.equals(action)) {
