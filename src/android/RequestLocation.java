@@ -25,8 +25,11 @@ public class RequestLocation extends CordovaPlugin {
 		try {
 		    if (ACTION_CHECK_LOCATION_ENABLED.equals(action)) { 
 		    	
-		    	
-		    	
+		    	 if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER )) {
+		    		 callbackContext.success(1); 
+		    	 } else {
+		    		 callbackContext.success(0);
+		    	 }
 		 
 		    } else if( ACTION_ENABLE_LOCATION.equals(action)) {
 		    	
@@ -36,6 +39,8 @@ public class RequestLocation extends CordovaPlugin {
 		            this.cordova.getActivity().startActivity(calIntent);
 					callbackContext.success();
 					return true;
+		        } else {
+		        	return true;
 		        }
 		    }
 		    
